@@ -7,9 +7,10 @@
     "start": "node build/server.js",
     "start:dev": "nodemon src/server.ts",
     "build": "npx tsc",
+    "docker:prune:dev": "docker builder prune -a -f && docker container prune -f && docker image prune -a -f",
     "docker:build:dev": "docker build -t registry.gitlab.com/amg-id/docker/base-app-dev:latest -f Dockerfile.dev .",
     "docker:push:dev": "docker image push registry.gitlab.com/amg-id/docker/base-app-dev:latest",
-    "docker:publish:dev": "npm run docker:build:dev && npm run docker:push:dev"
+    "docker:publish:dev": "npm run docker:prune:dev && npm run docker:build:dev && npm run docker:push:dev"
   },
   "dependencies": {
     "express": "^4.19.2"
