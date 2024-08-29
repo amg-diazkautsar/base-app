@@ -1,0 +1,14 @@
+FROM node:18.16.1-alpine AS BUILD_IMAGE
+WORKDIR /home
+COPY . .
+ENV NODE_OPTIONS=--max-old-space-size=16384
+RUN rm -rf ui
+RUN npm install -g npm@9.8.0
+RUN npm install
+RUN npm run build
+
+FROM node:18.6.0-alpine
+WORKDIR /home
+COPY --from=BUILD_IMAGE /home/dist .
+EXPOSE 6000
+CMD ["node", "dist/server.js"]

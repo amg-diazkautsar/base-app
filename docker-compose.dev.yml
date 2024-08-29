@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  base-app-dev:
+    image: "registry.gitlab.com/amg-id/docker/base-app-dev:latest"
+    container_name: "base-app-dev"
+    restart: "always"
+    networks:
+      - web
+    volumes:
+      - /public:/home/public
+    ports:
+      - 6000:6000
+networks:
+  web:
+    external: true
