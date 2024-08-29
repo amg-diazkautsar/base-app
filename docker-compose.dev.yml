@@ -10,7 +10,7 @@ services:
     volumes:
       - /public:/home/public
     ports:
-      - 6000:6000
+      - "6000:6000"
 networks:
   web:
     external: true
