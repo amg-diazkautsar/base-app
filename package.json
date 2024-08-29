@@ -2,9 +2,8 @@
   "name": "base-app",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
   "scripts": {
-    "start": "node build/server.js",
+    "start": "node dist/server.js",
     "start:dev": "nodemon src/server.ts",
     "build": "npx tsc",
     "docker:prune:dev": "docker builder prune -a -f && docker container prune -f && docker image prune -a -f",
