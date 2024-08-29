@@ -8,7 +8,7 @@ services:
     networks:
       - web
     volumes:
-      - /public:/home/public
+      - ./public:/home/public
     ports:
       - "6000:6000"
     expose:
