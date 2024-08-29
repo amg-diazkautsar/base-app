@@ -10,5 +10,6 @@ RUN npm run build
 FROM node:18.6.0-alpine
 WORKDIR /home
 COPY --from=BUILD_IMAGE /home/dist ./dist
+COPY --from=BUILD_IMAGE /home/node_modules ./node_modules
 EXPOSE 6000
 CMD ["node", "dist/server.js"]
