@@ -23,6 +23,9 @@
   <!-- More info at https://github.com/joeldenning/import-map-overrides/blob/master/docs/configuration.md#domain-list -->
   <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
 
+  <!-- Add your organization's prod import map URL to this script's src  -->
+  <!-- <script type="systemjs-importmap" src="https://s3.amg.id/assets/cdn-micro-fe/importmap.json"></script> -->
+
   <!-- Shared dependencies go into this import map. Your shared dependencies must be of one of the following formats:
 
     1. System.register (preferred when possible) - https://github.com/systemjs/systemjs/blob/master/docs/system-register.md
@@ -42,24 +45,21 @@
   </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
-  <!-- Add your organization's prod import map URL to this script's src  -->
-  <script type="systemjs-importmap" src="https://s3.amg.id/assets/cdn-micro-fe/importmap.json"></script>
-
   <!-- "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",  -->
-  <!-- <% if (isLocal) { %>
+  <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
       "imports": {
         "@pc/root-config": "//localhost:9000/pc-root-config.js",
-        "@pc/home": "//localhost:9001/pc-home.js",
         "@pc/nav-bar": "//localhost:9002/pc-nav-bar.js",
-        "@pc/auth": "//localhost:9003/main.js",
-        "@pc/product": "//localhost:9010/pc-product.js",
-        "@pc/sales": "//localhost:9011/main.js"
+        "@pc/home": "//localhost:9001/pc-home.js"
       }
     }
   </script>
-  <% } %> -->
+  <% } else { %>
+    <!-- Add your organization's prod import map URL to this script's src  -->
+    <script type="systemjs-importmap" src="https://s3.amg.id/assets/cdn-micro-fe/importmap.json"></script>
+  <% } %>
 
   <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
