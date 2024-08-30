@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start:dev": "webpack serve --port 9000 --env isLocal",
+    "start:dev": "webpack serve --port 7500 --env isLocal",
     "build:microfe": "webpack --mode=production",
     "build:server": "tsc src/server.ts --outDir dist/server",
     "build": "npm run build:microfe && npm run build:server",
