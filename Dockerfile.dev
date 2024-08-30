@@ -12,4 +12,4 @@ WORKDIR /home
 COPY --from=BUILD_IMAGE /home/dist ./dist
 COPY --from=BUILD_IMAGE /home/node_modules ./node_modules
 EXPOSE 7500
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/server/server.js"]
