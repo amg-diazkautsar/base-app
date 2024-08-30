@@ -1,14 +1,10 @@
-import express, { Request, Response } from 'express';
-import path from 'path';
+import * as express from 'express';
+import * as path from 'path';
+import { Request, Response } from 'express'
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log('Time:', Date.now())
-  next()
-})
-
-const publicDir = path.join(__dirname, '../public');
+const publicDir = path.join(__dirname,'../');
 app.use(express.static(publicDir));
 
 app.get('*', (req: Request, res: Response) => {

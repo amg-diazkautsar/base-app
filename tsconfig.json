@@ -1,11 +1,10 @@
 {
+  "extends": "ts-config-single-spa",
+  "files": ["src/pc-root-config.ts"],
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "declarationDir": "dist",
     "outDir": "dist",
-    "rootDir": "src",
-    "strict": true,
-    "esModuleInterop": true
   },
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test*", "src/server.ts"]
 }
